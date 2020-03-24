@@ -27,11 +27,6 @@ class ordersTests:
         assert json_order['status'] == status[0]
         assert json_order['complete'] == complete[0]
     
-    def test_status_code_500_data_order_data_model(self,json_order,API_order):
-        response = requests.post(API_order,json = json_order)
-        assert response.status_code == 500 # este puede que no sirva
-
-
     def test_data_float_type_field_id(self,json_order,API_order):
         #test to check the data type for id field it should be integer
         test = float(12.7)

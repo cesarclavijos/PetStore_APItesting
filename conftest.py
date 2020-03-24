@@ -23,4 +23,14 @@ def API_invetory ():
     url = "https://petstore.swagger.io/v2/store/inventory"
     response = requests.get(url) # obtengo la respuesta
     return response
+
+@fixture
+def API_find_order ():
+    url = "https://petstore.swagger.io/v2/store/order/"
+    return url
+    
+@fixture
+def API_delete ():
+    url = "https://petstore.swagger.io/v2/store/order/"
+    return url
     
