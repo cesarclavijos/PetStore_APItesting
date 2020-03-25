@@ -4,9 +4,9 @@ I choose to work with pytest over other different frameworks or tool because of 
 
 -It allows running the test cases in parallel. 
 -I can run a specific test or subsets of tests.
--Automatically detect test Pytest fixtures. 
--Allows to reuse it in an easy way in different test cases.
--It is based on python which for a future application allows handling data easier. 
+-Automatically detect test. 
+-Allows to reuse fixtures different test cases.
+-It is based on python which for a future  allows handling data analyst easier. 
 -Can create reports; Pytest has a lot of third-party plugins because it’s open-source
 
 
