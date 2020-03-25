@@ -1,4 +1,4 @@
-**Why do I choose pytest ?**
+# 1.**Why do I choose pytest ?**
 
 I choose to work with pytest over other differences frameworks or tool because of the next reasons :
 
@@ -12,7 +12,7 @@ Pytest has a lot of third party plugins
 it’s open-source
 
 
-**Environment set-up**
+# 2.**Environment set-up**
 
 Python3.7 with the next libraries :
 
@@ -23,43 +23,50 @@ requests ( Install using the next command “pip install requests”)
 Note: you can use the requirement.txt to install all the libraries with 
 “pip install -r requirement.txt”
 
-**run test cases**
+
+# 3.**run test cases**
 
 run the next commands in the terminal:
 *pytest* # to run all the test cases 
+
 *pytest -m "smoke"* # to run the smoke test suite
+
 *pytest -m "findorder"* # to run the suite for API_find_order
+
 *pytest -m "orders"* # to run the suite for API_create order
+
 *pytest -m "inventory"* # to run the suite for API_inventory
+
 *pytest -m "delete"* # to run the suite for API_delete
 
 
 add *“-n4”* to the command if you want to parallelize the test execution
+
 add *--html="results.html"* to the command if you want the report of test cases
 
-**Testing report**
+# 4.**Testing report**
 
 I choose the service store because the core of a pet store is sold, that’s why the APIs related to selling is critical for the business.
 
 I found the next issues related
 
-*-/store/order (Place an order for a pet)*
+## 4.1.*-/store/order (Place an order for a pet)*
 
 -ID value allows float number : According to the model, the ID value should be Int but it allows float numbers in the JSON.
 -petId value allows float number : According to the model, the petId value should be Int but it allows float numbers in the JSON.
 -quantity values allows float number: According to the model, the quantity value should be Int but it allows float numbers in the JSON.
 - The API does not display error message for invalid status :According to the information when the status value is not valid it should display a status code 400 and an error message, but the API allows another status 
 
-*-/store/order/{orderId} (Find purchase order by ID)*
+## 4.2*-/store/order/{orderId} (Find purchase order by ID)*
 
 - Wrong code status for invalid id :According to the information when the status is not valid it should display a status code 400 and an error message “invalid ID supplied”, but now the API displays a status code 404 with the next message "java.lang.NumberFormatException: For input string: \"y\""
 
 
-*-/store/order/{orderId} (Delete purchase order by ID)*
+## 4.3*-/store/order/{orderId} (Delete purchase order by ID)*
 
 -Wrong code status for invalid id: According to the information when the status is not valid it should display a status code 400 and an error message “invalid ID supplied”, but now the API displays a status code 404 with the next message "java.lang.NumberFormatException: For input string: \"y\""
 
-*-/store/inventory (Returns pet inventories by status)*
+## 4.4*-/store/inventory (Returns pet inventories by status)*
 
 -junk data for status : There are a lot of statuses different to the specified sold, available, pending, it depends on another API but it can affect the data in the Petstore_API
 
