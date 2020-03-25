@@ -8,22 +8,22 @@ class inventoryTests:
     @mark.smoke
     def test_status_code_200(self,API_invetory):
         #test to check the status code 200
-        assert API_invetory.status_code == 200
+        assert API_invetory.status_code == 200, "Error in the status code"
         
     def test_status_sold(self,API_invetory):
         #test the inventory in status sold
         json_response = json.loads(API_invetory.text)
         sold = jsonpath.jsonpath(json_response,'sold')
-        assert sold[0] >= 0
+        assert sold[0] >= 0 , "there are not status sold"
            
     def test_status_available(self,API_invetory):
         #test the inventory in status available
         json_response = json.loads(API_invetory.text)
         available = jsonpath.jsonpath(json_response,'available')
-        assert available[0] >= 0
+        assert available[0] >= 0 , "there are not status available"
 
     def test_status_pending(self,API_invetory):
         #test the inventory in status pending
         json_response = json.loads(API_invetory.text)
         pending = jsonpath.jsonpath(json_response,'pending')
-        assert pending[0] >= 0
+        assert pending[0] >= 0 , "there are not status pending"

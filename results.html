@@ -241,7 +241,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>results.html</h1>
-    <p>Report generated on 24-Mar-2020 at 18:24:41 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
+    <p>Report generated on 24-Mar-2020 at 20:17:06 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.0.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -257,7 +257,7 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.6.9</td></tr></table>
     <h2>Summary</h2>
-    <p>42 tests ran in 11.79 seconds. </p>
+    <p>42 tests ran in 7.75 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">33 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">9 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -273,11 +273,20 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Failed</td>
           <td class="col-name">Store_test/test_delete_order.py::inventoryTests::test_invalid_id</td>
-          <td class="col-duration">0.73</td>
+          <td class="col-duration">0.33</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_delete_order.inventoryTests object at 0x108ccb9e8&gt;, API_delete = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    def test_invalid_id(self,API_delete):<br/>        #test to check the status code 200<br/>        id = &quot;test&quot;<br/>        url_find= API_delete+str(id)<br/>        response = requests.delete(url_find)<br/>&gt;       assert response.status_code == 400<br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_delete_order.py:36: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_delete_order.inventoryTests object at 0x104d71e48&gt;, API_delete = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    def test_invalid_id(self,API_delete):<br/>        #test when the id is invalid<br/>        id = &quot;test&quot;<br/>        url_find= API_delete+str(id)<br/>        response = requests.delete(url_find)<br/>&gt;       assert response.status_code == 400, &quot;The status code is not 400 for an invalid ID&quot;<br/><span class="error">E       AssertionError: The status code is not 400 for an invalid ID</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_delete_order.py:36: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_code_invalid_ID</td>
+          <td class="col-duration">0.29</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">[gw1] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x10509bda0&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    @mark.smoke<br/>    def test_status_code_invalid_ID(self,API_find_order):<br/>        #test to check the status code for an Invalid ID supplied<br/>        id = &quot;t&quot;<br/>        url_find= API_find_order+str(id)<br/>        response = requests.get(url_find)<br/>&gt;       assert response.status_code == 400 , &quot;The status_code Should be 400 for an Invalid ID&quot;<br/><span class="error">E       AssertionError: The status_code Should be 400 for an Invalid ID</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:37: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
@@ -286,75 +295,66 @@ function filter_table(elem) {
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x108ccb898&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    def test_status_code_invalid_ID_2(self,API_find_order):<br/>        #test to check the status code for an Invalid ID supplied<br/>        id = &quot;t2545&quot;<br/>        url_find= API_find_order+str(id)<br/>        response = requests.get(url_find)<br/>&gt;       assert response.status_code == 400, &quot;The status_code Should be 400&quot;<br/><span class="error">E       AssertionError: The status_code Should be 400</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:45: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x104d90860&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    def test_status_code_invalid_ID_2(self,API_find_order):<br/>        #test to check the status code for an Invalid ID supplied<br/>        id = &quot;t2545&quot;<br/>        url_find= API_find_order+str(id)<br/>        response = requests.get(url_find)<br/>&gt;       assert response.status_code == 400, &quot;The status_code Should be 400 for an Invalid ID&quot;<br/><span class="error">E       AssertionError: The status_code Should be 400 for an Invalid ID</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:45: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
           <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_code_200</td>
-          <td class="col-duration">1.29</td>
+          <td class="col-duration">0.88</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x103d2d2b0&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 0, ...}<br/>API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    @mark.smoke<br/>    def test_status_code_200(self,API_find_order,json_order,API_order):<br/>        #test to check the status code 200<br/>        test = int(5)<br/>        json_order[&#x27;id&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>        json_response = json.loads(response.text)<br/>        id = jsonpath.jsonpath(json_response,&#x27;id&#x27;)<br/>        url_find= API_find_order+str(id[0])<br/>        response_2 = requests.get(url_find)<br/>&gt;       assert response_2.status_code == 200<br/><span class="error">E       assert 404 == 200</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:18: AssertionError<br/></div></td></tr></tbody>
-      <tbody class="failed results-table-row">
-        <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_code_invalid_ID</td>
-          <td class="col-duration">0.87</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">[gw1] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x10f61acc0&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    @mark.smoke<br/>    def test_status_code_invalid_ID(self,API_find_order):<br/>        #test to check the status code for an Invalid ID supplied<br/>        id = &quot;t&quot;<br/>        url_find= API_find_order+str(id)<br/>        response = requests.get(url_find)<br/>&gt;       assert response.status_code == 400 , &quot;The status_code Should be 400&quot;<br/><span class="error">E       AssertionError: The status_code Should be 400</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:37: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x107b1de48&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/>json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 0, ...}, API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    @mark.smoke<br/>    def test_status_code_200(self,API_find_order,json_order,API_order):<br/>        #test to check the status code 200<br/>        test = int(5)<br/>        json_order[&#x27;id&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>        json_response = json.loads(response.text)<br/>        id = jsonpath.jsonpath(json_response,&#x27;id&#x27;)<br/>        url_find= API_find_order+str(id[0])<br/>        response_2 = requests.get(url_find)<br/>&gt;       assert response_2.status_code == 200, &quot;There is an error with the API&quot;<br/><span class="error">E       AssertionError: There is an error with the API</span><br/><span class="error">E       assert 404 == 200</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:18: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
           <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_code_invalid_ID_3</td>
-          <td class="col-duration">0.72</td>
+          <td class="col-duration">0.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x103d57eb8&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    def test_status_code_invalid_ID_3(self,API_find_order):<br/>        #test to check the status code for an Invalid ID supplied<br/>        id = 25.4<br/>        url_find= API_find_order+str(id)<br/>        response = requests.get(url_find)<br/>&gt;       assert response.status_code == 400 , &quot;The status_code Should be 400&quot;<br/><span class="error">E       AssertionError: The status_code Should be 400</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:53: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_find_order.inventoryTests object at 0x107b3a9e8&gt;, API_find_order = &#x27;https://petstore.swagger.io/v2/store/order/&#x27;<br/><br/>    def test_status_code_invalid_ID_3(self,API_find_order):<br/>        #test to check the status code for an Invalid ID supplied<br/>        id = 25.4<br/>        url_find= API_find_order+str(id)<br/>        response = requests.get(url_find)<br/>&gt;       assert response.status_code == 400 , &quot;The status_code Should be 400 for an Invalid ID&quot;<br/><span class="error">E       AssertionError: The status_code Should be 400 for an Invalid ID</span><br/><span class="error">E       assert 404 == 400</span><br/><span class="error">E        +  where 404 = &lt;Response [404]&gt;.status_code</span><br/><br/>Store_test/test_find_order.py:53: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_float_type_field_petId</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_float_type_element_id</td>
           <td class="col-duration">0.29</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x108d8bef0&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 12.1, &#x27;quantity&#x27;: 0, ...}, API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    def test_data_float_type_field_petId(self,json_order,API_order):<br/>        #test to check the data type for petId field it should be integer<br/>        test = float(12.1)<br/>        json_order[&#x27;petId&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 500<br/><span class="error">E       assert 200 == 500</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:66: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x10560eeb8&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 12.7, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 0, ...}<br/>API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    def test_data_float_type_element_id(self,json_order,API_order):<br/>        #test to check the data type for id element it should be integer<br/>        test = float(12.7)<br/>        json_order[&#x27;id&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 500, &quot;The API allows incorrect data for the id element&quot;<br/><span class="error">E       AssertionError: The API allows incorrect data for the id element</span><br/><span class="error">E       assert 200 == 500</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:35: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_float_type_field_id</td>
-          <td class="col-duration">1.62</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_float_type_element_petId</td>
+          <td class="col-duration">0.55</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x103d57ef0&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 12.7, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 0, ...}, API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    def test_data_float_type_field_id(self,json_order,API_order):<br/>        #test to check the data type for id field it should be integer<br/>        test = float(12.7)<br/>        json_order[&#x27;id&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 500<br/><span class="error">E       assert 200 == 500</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:35: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x10563e5c0&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 12.1, &#x27;quantity&#x27;: 0, ...}, API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    def test_data_float_type_element_petId(self,json_order,API_order):<br/>        #test to check the data type for petId element it should be integer<br/>        test = float(12.1)<br/>        json_order[&#x27;petId&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 500, &quot;The API allows incorrect data in the petId element&quot;<br/><span class="error">E       AssertionError: The API allows incorrect data in the petId element</span><br/><span class="error">E       assert 200 == 500</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:66: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_float_type_field_quantity</td>
-          <td class="col-duration">0.67</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_float_type_element_quantity</td>
+          <td class="col-duration">0.30</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw2] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x108d23b70&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 12.1, ...}, API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    def test_data_float_type_field_quantity(self,json_order,API_order):<br/>        #test to check the data type for quantity field it should be integer<br/>        test = float(12.1)<br/>        json_order[&#x27;quantity&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 500<br/><span class="error">E       assert 200 == 500</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:97: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x107be2550&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 12.1, ...}<br/>API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    def test_data_float_type_element_quantity(self,json_order,API_order):<br/>        #test to check the data type for quantity element it should be integer<br/>        test = float(12.1)<br/>        json_order[&#x27;quantity&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 500, &quot;The API allows incorrect data in the quantity element&quot;<br/><span class="error">E       AssertionError: The API allows incorrect data in the quantity element</span><br/><span class="error">E       assert 200 == 500</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:97: AssertionError<br/></div></td></tr></tbody>
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_with_incorrect_field</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_with_incorrect_element</td>
           <td class="col-duration">0.29</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw1] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x110a20780&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 0, ...}, API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    @mark.smoke<br/>    def test_status_with_incorrect_field(self,json_order,API_order):<br/>        #test to check shstatusipDate field with a status: test  which is wrong<br/>        test = &quot;test&quot;<br/>        json_order[&#x27;status&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 400<br/><span class="error">E       assert 200 == 400</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:164: AssertionError<br/></div></td></tr></tbody>
+            <div class="log">[gw3] darwin -- Python 3.6.9 /Users/Cesan/anaconda3/envs/Pytest/bin/python<br/><br/>self = &lt;test_store_order.ordersTests object at 0x107bbff98&gt;, json_order = {&#x27;complete&#x27;: True, &#x27;id&#x27;: 5, &#x27;petId&#x27;: 1022371684, &#x27;quantity&#x27;: 0, ...}<br/>API_order = &#x27;https://petstore.swagger.io/v2/store/order&#x27;<br/><br/>    @mark.smoke<br/>    def test_status_with_incorrect_element(self,json_order,API_order):<br/>        #test to check shstatusipDate element with a status: test  which is wrong<br/>        test = &quot;test&quot;<br/>        json_order[&#x27;status&#x27;] = test<br/>        response = requests.post(API_order,json = json_order)<br/>&gt;       assert response.status_code == 400, &quot;The API allows incorrect data in the element status&quot;<br/><span class="error">E       AssertionError: The API allows incorrect data in the element status</span><br/><span class="error">E       assert 200 == 400</span><br/><span class="error">E        +  where 200 = &lt;Response [200]&gt;.status_code</span><br/><br/>Store_test/test_store_order.py:164: AssertionError<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_delete_order.py::inventoryTests::test_order_not_found</td>
-          <td class="col-duration">0.69</td>
+          <td class="col-duration">0.34</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -363,7 +363,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_delete_order.py::inventoryTests::test_status_code_200</td>
-          <td class="col-duration">1.02</td>
+          <td class="col-duration">0.88</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -371,8 +371,17 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_petId_field</td>
-          <td class="col-duration">0.73</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_id_element</td>
+          <td class="col-duration">0.64</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_petId_element</td>
+          <td class="col-duration">0.66</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -381,106 +390,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_code_200_other_id</td>
-          <td class="col-duration">1.41</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_quantity_field</td>
-          <td class="col-duration">1.02</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_status_field</td>
-          <td class="col-duration">0.80</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_complete_field</td>
-          <td class="col-duration">0.71</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_for_order_not_found</td>
-          <td class="col-duration">1.34</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_shipDate_field</td>
-          <td class="col-duration">1.05</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_response_response_body_200</td>
-          <td class="col-duration">0.39</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_invetory.py::inventoryTests::test_status_available</td>
-          <td class="col-duration">0.01</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_code_200</td>
-          <td class="col-duration">0.35</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_invetory.py::inventoryTests::test_status_pending</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_id_field</td>
-          <td class="col-duration">2.75</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_string_type_field_id</td>
-          <td class="col-duration">0.30</td>
+          <td class="col-duration">0.68</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -498,7 +408,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_invetory.py::inventoryTests::test_status_sold</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -506,8 +416,8 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_plus_one_field_id</td>
-          <td class="col-duration">0.73</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_quantity_element</td>
+          <td class="col-duration">0.84</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -515,7 +425,25 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_field_petId</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_status_for_order_not_found</td>
+          <td class="col-duration">0.83</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_status_element</td>
+          <td class="col-duration">1.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_code_200</td>
           <td class="col-duration">0.29</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -524,16 +452,7 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_plus_one_field_petId</td>
-          <td class="col-duration">0.32</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_string_type_field_quantity</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_response_response_body_200</td>
           <td class="col-duration">0.29</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -542,8 +461,8 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_string_type_field_petId</td>
-          <td class="col-duration">0.74</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_shipDate_element</td>
+          <td class="col-duration">0.59</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -551,7 +470,52 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_shipDate_in_zero</td>
+          <td class="col-name">Store_test/test_invetory.py::inventoryTests::test_status_available</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_invetory.py::inventoryTests::test_status_pending</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_element_id</td>
+          <td class="col-duration">0.53</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_find_order.py::inventoryTests::test_response_complete_element</td>
+          <td class="col-duration">1.07</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_string_type_element_petId</td>
+          <td class="col-duration">0.29</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_plus_one_element_id</td>
           <td class="col-duration">0.31</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -560,8 +524,8 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_field_id</td>
-          <td class="col-duration">0.33</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_string_type_element_id</td>
+          <td class="col-duration">0.31</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -569,8 +533,53 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_plus_one_field_quantity</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_element_petId</td>
+          <td class="col-duration">0.28</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_plus_one_element_petId</td>
+          <td class="col-duration">0.55</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_plus_one_element_quantity</td>
           <td class="col-duration">0.29</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_shipDate_in_zero</td>
+          <td class="col-duration">0.29</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_string_type_element_quantity</td>
+          <td class="col-duration">0.53</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_element_quantity</td>
+          <td class="col-duration">0.28</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -579,43 +588,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_value_placed</td>
-          <td class="col-duration">0.65</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_shipDate_random_value</td>
-          <td class="col-duration">0.73</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_value_delivered</td>
-          <td class="col-duration">0.76</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_complete_with_true</td>
-          <td class="col-duration">0.29</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_data_max_field_quantity</td>
-          <td class="col-duration">1.52</td>
+          <td class="col-duration">0.30</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -624,6 +597,15 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_value_approved</td>
+          <td class="col-duration">0.31</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_shipDate_random_value</td>
           <td class="col-duration">0.29</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -632,8 +614,26 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_status_value_delivered</td>
+          <td class="col-duration">0.51</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_store_order.py::ordersTests::test_complete_with_false</td>
-          <td class="col-duration">0.73</td>
+          <td class="col-duration">0.29</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Store_test/test_store_order.py::ordersTests::test_complete_with_true</td>
+          <td class="col-duration">0.52</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -642,7 +642,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">Store_test/test_store_order.py::ordersTests::test_complete_with_incorrect_value</td>
-          <td class="col-duration">2.30</td>
+          <td class="col-duration">0.31</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
