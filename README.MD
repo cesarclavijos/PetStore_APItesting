@@ -52,7 +52,7 @@ add *--html="results.html"* to the command if you want the report of test cases
 
 # 4.**Testing report**
 
-I chose the service store because the core of a pet store, or in general any store is to sell the products, that’s why the APIs related to selling is critical for the business.
+I chose the service store because the core of a pet store, or in general any store is to sell the products, that’s why the APIs related to selling is critical for the business. for the testing, I had into account the positive scenarios, negative scenarios, the validation of status codes, the validations of parameters in the elements (types, length) and the messages.
 
 I found the following issues related:
 
