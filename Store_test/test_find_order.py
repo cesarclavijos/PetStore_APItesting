@@ -14,7 +14,7 @@ class inventoryTests:
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
         url_find= API_find_order+str(id[0])
-        response_2 = requests.delete(url_find)
+        response_2 = requests.get(url_find)
         assert response_2.status_code == 200
     
     def test_status_code_200_other_id(self,API_find_order,json_order,API_order):
@@ -25,7 +25,7 @@ class inventoryTests:
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
         url_find= API_find_order+str(id[0])
-        response_2 = requests.delete(url_find)
+        response_2 = requests.get(url_find)
         assert response_2.status_code == 200
 
     @mark.smoke
@@ -70,11 +70,12 @@ class inventoryTests:
         response = requests.post(API_order,json = json_order)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        url_find= API_find_order+str(id)
+        url_find= API_find_order+str(id[0])
         response = requests.get(url_find)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        assert isinstance(id[0], int)
+        assert type(id[0]) is int
+   
 
     def test_response_petId_field(self,API_find_order,json_order,API_order):
         #test to check type and field petId
@@ -83,11 +84,12 @@ class inventoryTests:
         response = requests.post(API_order,json = json_order)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        url_find= API_find_order+str(id)
+        url_find= API_find_order+str(id[0])
         response = requests.get(url_find)
         json_response = json.loads(response.text)
         petId = jsonpath.jsonpath(json_response,'petId')
         assert type(petId[0]) is int
+   
 
     def test_response_quantity_field(self,API_find_order,json_order,API_order):
         #test to check type and field quantity
@@ -96,11 +98,12 @@ class inventoryTests:
         response = requests.post(API_order,json = json_order)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        url_find= API_find_order+str(id)
+        url_find= API_find_order+str(id[0])
         response = requests.get(url_find)
         json_response = json.loads(response.text)
         quantity = jsonpath.jsonpath(json_response,'quantity')
         assert type(quantity[0]) is int
+     
 
     def test_response_shipDate_field(self,API_find_order,json_order,API_order):
         #test to check type and field shipDate
@@ -109,12 +112,12 @@ class inventoryTests:
         response = requests.post(API_order,json = json_order)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        url_find= API_find_order+str(id)
+        url_find= API_find_order+str(id[0])
         response = requests.get(url_find)
         json_response = json.loads(response.text)
         shipDate = jsonpath.jsonpath(json_response,'shipDate')
         assert type(shipDate[0]) is str
-
+        
     def test_response_status_field(self,API_find_order,json_order,API_order):
         #test to check type and field status
         test = int(255)
@@ -122,11 +125,12 @@ class inventoryTests:
         response = requests.post(API_order,json = json_order)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        url_find= API_find_order+str(id)
+        url_find= API_find_order+str(id[0])
         response = requests.get(url_find)
         json_response = json.loads(response.text)
         status = jsonpath.jsonpath(json_response,'status')
-        assert isinstance(status[0], str)
+        assert type(status[0]) is str
+    
 
     def test_response_complete_field(self,API_find_order,json_order,API_order):
         #test to check type and field complete
@@ -135,8 +139,8 @@ class inventoryTests:
         response = requests.post(API_order,json = json_order)
         json_response = json.loads(response.text)
         id = jsonpath.jsonpath(json_response,'id')
-        url_find= API_find_order+str(id)
+        url_find= API_find_order+str(id[0])
         response = requests.get(url_find)
         json_response = json.loads(response.text)
         complete = jsonpath.jsonpath(json_response,'complete')
-        assert isinstance(complete[0], bool)
+        assert type(complete[0]) is bool
