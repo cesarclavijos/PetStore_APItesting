@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="3" name="pytest" skipped="0" tests="9" time="3.961"><testcase classname="Store_test.test_delete_order.inventoryTests" file="Store_test/test_delete_order.py" line="8" name="test_status_code_200" time="0.605"></testcase><testcase classname="Store_test.test_delete_order.inventoryTests" file="Store_test/test_delete_order.py" line="19" name="test_order_not_found" time="0.299"></testcase><testcase classname="Store_test.test_find_order.inventoryTests" file="Store_test/test_find_order.py" line="7" name="test_status_code_200" time="0.642"></testcase><testcase classname="Store_test.test_find_order.inventoryTests" file="Store_test/test_find_order.py" line="30" name="test_status_code_invalid_ID" time="0.286"><failure message="AssertionError: The status_code Should be 400 for an Invalid ID
+assert 404 == 400
+ +  where 404 = &lt;Response [404]&gt;.status_code">self = &lt;test_find_order.inventoryTests object at 0x1143eae80&gt;, API_find_order = &apos;https://petstore.swagger.io/v2/store/order/&apos;
+
+    @mark.smoke
+    def test_status_code_invalid_ID(self,API_find_order):
+        #test to check the status code for an Invalid ID supplied
+        id = &quot;t&quot;
+        url_find= API_find_order+str(id)
+        response = requests.get(url_find)
+&gt;       assert response.status_code == 400 , &quot;The status_code Should be 400 for an Invalid ID&quot;
+E       AssertionError: The status_code Should be 400 for an Invalid ID
+E       assert 404 == 400
+E        +  where 404 = &lt;Response [404]&gt;.status_code
+
+Store_test/test_find_order.py:37: AssertionError</failure></testcase><testcase classname="Store_test.test_find_order.inventoryTests" file="Store_test/test_find_order.py" line="54" name="test_status_for_order_not_found" time="0.625"><failure message="AssertionError: status_code Should be 404 for order not found
+assert 200 == 404
+ +  where 200 = &lt;Response [200]&gt;.status_code">self = &lt;test_find_order.inventoryTests object at 0x1143c7860&gt;, API_find_order = &apos;https://petstore.swagger.io/v2/store/order/&apos;
+API_delete = &apos;https://petstore.swagger.io/v2/store/order/&apos;
+
+    @mark.smoke
+    def test_status_for_order_not_found(self,API_find_order,API_delete):
+        #test to check the status code for Order not found
+        id = 1
+        url_find= API_delete+str(id)
+        response = requests.delete(url_find)
+        url_find_2= API_find_order+str(id)
+        response_2 = requests.get(url_find_2)
+&gt;       assert response.status_code == 404 , &quot;status_code Should be 404 for order not found&quot;
+E       AssertionError: status_code Should be 404 for order not found
+E       assert 200 == 404
+E        +  where 200 = &lt;Response [200]&gt;.status_code
+
+Store_test/test_find_order.py:63: AssertionError</failure></testcase><testcase classname="Store_test.test_invetory.inventoryTests" file="Store_test/test_invetory.py" line="7" name="test_status_code_200" time="0.302"></testcase><testcase classname="Store_test.test_store_order.ordersTests" file="Store_test/test_store_order.py" line="7" name="test_status_code_200" time="0.299"></testcase><testcase classname="Store_test.test_store_order.ordersTests" file="Store_test/test_store_order.py" line="14" name="test_response_response_body_200" time="0.316"></testcase><testcase classname="Store_test.test_store_order.ordersTests" file="Store_test/test_store_order.py" line="157" name="test_status_with_incorrect_element" time="0.285"><failure message="AssertionError: The API allows incorrect data in the element status
+assert 200 == 400
+ +  where 200 = &lt;Response [200]&gt;.status_code">self = &lt;test_store_order.ordersTests object at 0x114498a90&gt;, json_order = {&apos;complete&apos;: True, &apos;id&apos;: 5, &apos;petId&apos;: 1022371684, &apos;quantity&apos;: 0, ...}
+API_order = &apos;https://petstore.swagger.io/v2/store/order&apos;
+
+    @mark.smoke
+    def test_status_with_incorrect_element(self,json_order,API_order):
+        #test to check shstatusipDate element with a status: test  which is wrong
+        test = &quot;test&quot;
+        json_order[&apos;status&apos;] = test
+        response = requests.post(API_order,json = json_order)
+&gt;       assert response.status_code == 400, &quot;The API allows incorrect data in the element status&quot;
+E       AssertionError: The API allows incorrect data in the element status
+E       assert 200 == 400
+E        +  where 200 = &lt;Response [200]&gt;.status_code
+
+Store_test/test_store_order.py:164: AssertionError</failure></testcase></testsuite>
