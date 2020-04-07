@@ -12,7 +12,7 @@ def API_order ():
 @fixture
 def json_order ():
     #Read Input json file
-    file = open('/Users/Cesan/Python_estudio/Automation/Automation/API_testing/Request/Test_Adidas/Sample_services_store/order_placed_for_purchasing.json','r')
+    file = open('./Sample_services_store/order_placed_for_purchasing.json'','r')
     json_input = file.read()
     request_json = json.loads(json_input)
     return request_json 
