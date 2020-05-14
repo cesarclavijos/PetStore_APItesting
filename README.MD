@@ -48,5 +48,5 @@ Run the following commands in the terminal:
 
 add *“-n4”* to the command if you want to parallelize the test execution
 
-add *--html="results.html"* to the command if you want the report of test cases
+add *--html="results.html"* to the command if you want the report of test cases.
 
