@@ -89,7 +89,7 @@ tf-nightly-2.0-preview==2.0.0.dev20190527
 tornado==6.0.2
 tqdm==4.32.1
 traitlets==4.3.2
-urllib3==1.24.3
+urllib3==1.26.5
 watson-developer-cloud==2.10.1
 watson-machine-learning-client==1.0.365
 wcwidth==0.1.7
